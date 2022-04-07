@@ -61,14 +61,17 @@ class Player {
   }
 
   moveLeft() {
+      if(this.positionX > 0){
     this.positionX-= 5;
-    console.log(`moving left ...${this.positionX}`);
+      }
   }
 
   moveRight() {
+    if(this.positionX < 92){
+
     this.positionX+= 5;
-    console.log(`moving right ...${this.positionX}`);
   }
+}
 }
 
 class Obstacle {
@@ -76,6 +79,8 @@ class Obstacle {
     // this.eliminator = eliminator
     this.positionX = Math.floor(Math.random() * 80);
     this.positionY = 90;
+    this.obstacleHeight = 20;
+    this.obstacleWidth = Math.floor(10 + Math.random() * 90);
     this.domElement = null;
   }
 

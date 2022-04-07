@@ -18,7 +18,10 @@ function drawDomElement(instance){
 
     instance.domElement.style.left = instance.positionX + "%";
     instance.domElement.style.bottom = instance.positionY + "%";
-};
+
+    instance.domElement.style.width = instance.obstacleWidth + "px";
+    instance.domElement.style.height = instance.obstacleHeight + "px";
+}
 
 const game = new Game(creatDomElement, drawDomElement);
 game.start();
