@@ -7,6 +7,8 @@ class Game {
         this.player = null;
         this.create = create;
         this.draw = draw;
+        this.objectArray = [];
+
     }
 
     start(){
@@ -14,25 +16,28 @@ class Game {
         this.player = new Player();
         this.player.domElement = this.create("player");
         this.draw(this.player);
-
-        this.obstacle = new Obstacle();
-        this.obstacle.domElement = this.create("obstacle");
-        this.draw(this.obstacle);
-
-
-
+           
           // move obstacle
+        setInterval(code, delay)
 
-        setInterval(() => {
 
-            console.log(this)
-  
-            this.obstacle.moveDown();
+
+
+          let objectInterval = setInterval(() => {
+            let objectNumber = 0;
+            this.obstacle = new Obstacle();
+            this.obstacle.domElement = this.create("obstacle");
             this.draw(this.obstacle);
-  
-              }, 50)
+            //we add every obstacle to obstacle array
+             this.objectArray.push(this.obstacle);
+         },3000)
 
-
+        let intervalId = setInterval(() => {
+            this.objectArray.forEach(element => {
+            element.moveDown();
+            this.draw(element);
+            })
+        },100)
     }
 
     movePlayer(direction){
@@ -69,7 +74,7 @@ class Obstacle {
     constructor(){
        // this.eliminator = eliminator
         this.positionX = 50;
-        this.positionY = 100;
+        this.positionY = 90;
         this.domElement = null;
     }
 
