@@ -13,14 +13,14 @@ function creatDomElement(className){
 }
 
 function drawDomElement(instance){
-    console.log("the element to pain is...",instance.positionX)
-    console.log("new horizontal position will be... ", instance.positionX);
+  //  console.log("the element to pain is...",instance.positionX)
+   // console.log("new horizontal position will be... ", instance.positionX);
 
     instance.domElement.style.left = instance.positionX + "%";
     instance.domElement.style.bottom = instance.positionY + "%";
 
-    instance.domElement.style.width = instance.obstacleWidth + "px";
-    instance.domElement.style.height = instance.obstacleHeight + "px";
+    instance.domElement.style.width = instance.width + "%";
+    instance.domElement.style.height = instance.height + "%";
 }
 
 const game = new Game(creatDomElement, drawDomElement);
